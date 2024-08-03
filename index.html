@@ -27,9 +27,12 @@
         .message-box h1 {
             font-family: 'Dancing Script', cursive;
             font-size: 4em;
-            color: #ff0066;
             margin: 0;
-            animation: heartbeat 1.5s infinite, colorChange 5s infinite, shadowPulse 1.5s infinite;
+            background: linear-gradient(90deg, #ff0066, #ffcc00, #33cc33, #0066cc, #ff0066);
+            background-size: 400%;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: colorShift 10s linear infinite, heartbeat 1.5s infinite;
         }
         .message-box img {
             width: 100px;
@@ -45,16 +48,9 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
         }
-        @keyframes colorChange {
-            0% { color: #ff0066; }
-            25% { color: #ffcc00; }
-            50% { color: #33cc33; }
-            75% { color: #0066cc; }
-            100% { color: #ff0066; }
-        }
-        @keyframes shadowPulse {
-            0%, 100% { text-shadow: 0 0 5px rgba(255, 0, 102, 0.5), 0 0 10px rgba(255, 0, 102, 0.4); }
-            50% { text-shadow: 0 0 20px rgba(255, 0, 102, 0.7), 0 0 30px rgba(255, 0, 102, 0.6); }
+        @keyframes colorShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
